@@ -1,358 +1,358 @@
-Playing with text on the command line
-=====================================
+Jugar con texto en la línea de comando
+=======================================
 
-The command line (also known as the command line interface, or CLI, or sometimes the terminal), is a plain text-based interface for executing commands on a computer.  If you've ever seen a movie about hackers from the 1980s, like *WarGames*, where they stare at a prompt on a black screen and type in commands one at a time, it's basically that.
+La línea de comando (también conocida como interfaz de línea de comando, o CLI, o a veces terminal), es una interfaz basada en texto sin formato para ejecutar comandos en una computadora.  Si alguna vez has visto una película sobre hackers de la década de 1980, como *WarGames*, donde miran un mensaje en una pantalla negra y escriben comandos uno a la vez, es básicamente eso.
 
-You have a prompt, and you can type in a command and hit 'Enter' to execute it.  An example command would be:
+Tiene un mensaje y puede escribir un comando y presionar 'Entrar' para ejecutarlo.  Un comando de ejemplo sería:
 
-	touch newfile.txt
+	touch nuevoarchivo.txt
 
-This command will create a file called `newfile.txt`.
+Este comando creará un archivo llamado `newfile.txt`.
 
-How to access the command line
+Cómo acceder a la línea de comando
 ------------------------------
 
-**Mac OS X:** Go to /Applications/Utilities and click on "Terminal" or search for "Terminal" in Spotlight.
+**Mac OS X:** Vaya a /Aplicaciones/Utilidades y haga clic en "Terminal" o busque "Terminal" en Spotlight.
 
-**Desktop Linux:** You can search for the "Terminal" application from the Dash.  Let's be honest, though, if you're running Linux, you probably don't need this tutorial.
+**Desktop Linux:** Puede buscar la aplicación "Terminal" desde el Dash.  Sin embargo, seamos honestos: si estás ejecutando Linux, probablemente no necesites este tutorial.
 
-**Windows:** Windows is a bit of a special case.  If you go to the Start Menu and click "Run", and then type "cmd" and hit enter, it will open the Windows version of the command line.  Unfortunately, the Windows version of the command line kind of has its own system, so for the purposes of following these examples, you'll want to install Cygwin, which will allow you to mimic a Linux-style command line:
+**Windows:** Windows es un caso un poco especial.  Si va al menú Inicio y hace clic en "Ejecutar", luego escribe "cmd" y presiona Enter, se abrirá la versión de Windows de la línea de comando.  Desafortunadamente, la versión de Windows de la línea de comando tiene su propio sistema, por lo que para seguir estos ejemplos, querrás instalar Cygwin, que te permitirá imitar una línea de comando estilo Linux:
 
 http://www.cygwin.com/
 
-A little more detail
+Un poco más de detalle
 --------------------
 
-Commands generally take the format:
+Los comandos generalmente toman el formato:
 
-	[name of the command] [option] [option] [option] ...
+	[nombre del comando] [opción] [opción] [opción] ...
 
-The prompt will also show what directory you're currently sitting in.  Whenever you execute a command, you do it from a particular directory.  This matters because when you execute a command that involves a filename or a directory name, you can specify it one of two ways:
+El mensaje también mostrará en qué directorio se encuentra actualmente. Cada vez que ejecuta un comando, lo hace desde un directorio en particular.  Esto es importante porque cuando ejecuta un comando que involucra un nombre de archivo o un nombre de directorio, puede especificarlo de dos maneras:
 
-#### Relative Paths
+#### Rutas relativas
 
-Specifying a file or directory as a relative path means you are specifying where it sits relative to the directory you're in.  For example, let's say you're in the `videos` subdirectory of the `files` directory.  You'll see this prompt:
+Especificar un archivo o directorio como una ruta relativa significa que estás especificando dónde se ubica en relación con el directorio en el que te encuentras. Por ejemplo, digamos que estás en el subdirectorio `videos` del directorio `files`.  Verá este mensaje:
 
-	/files/videos$
+	/archivos/videos$
 
-If you execute a command like `touch newfile.txt`, it will create `newfile.txt` inside the current directory.  Relative paths don't start with a slash.
+Si ejecuta un comando como `touch newfile.txt`, creará `newfile.txt` dentro del directorio actual.  Las rutas relativas no comienzan con una barra.
 
-#### Absolute Paths
+#### Caminos absolutos
 
-Specifying a file or directory as an absolute path means you are specifying where it sits on the computer in absolute terms, starting from the top level.  For example, let's say you're in the `videos` subdirectory of the `files` directory again.
+Especificar un archivo o directorio como una ruta absoluta significa que está especificando dónde se encuentra en la computadora en términos absolutos, comenzando desde el nivel superior.  Por ejemplo, digamos que estás nuevamente en el subdirectorio `videos` del directorio `files`.
 
-	/files/videos$
+	/archivos/vídeos$
 
-If you execute a command like `touch /files/music/newfile.txt`, it will create `newfile.txt` inside a different folder, the `music` subfolder of the `files` folder.  *Absolute paths start with a slash.*
+Si ejecuta un comando como `touch /files/music/newfile.txt`, creará `newfile.txt` dentro de una carpeta diferente, la subcarpeta `music` de la carpeta `files`.  *Los caminos absolutos comienzan con una barra.*
 
-If you use an absolute path, the command will do the same thing no matter what directory you execute it from.
+Si usa una ruta absoluta, el comando hará lo mismo sin importar desde qué directorio lo ejecute.
 
-So these two commands will have the same result from the `/files/videos` directory:
+Entonces estos dos comandos tendrán el mismo resultado desde el directorio `/files/videos`:
 
-	/files/videos$ rm video.mp4
-	(This will delete the file `video.mp4` from the current directory)
+	/archivos/videos$ rm video.mp4
+	(Esto eliminará el archivo `video.mp4` del directorio actual)
 
-	/files/videos$ rm /files/videos/video.mp4
-	(This will delete `video.mp4` from the /files/videos/ directory, which happens to be the current directory)
+	/archivos/videos$ rm /archivos/videos/video.mp4
+	(Esto eliminará `video.mp4` del directorio /files/videos/, que resulta ser el directorio actual)
 
-The same two commands will not have the same result if you are in a different directory:
+Los mismos dos comandos no tendrán el mismo resultado si se encuentra en un directorio diferente:
 
 	/files/text$ rm video.mp4
-	(This will try to delete the file video.mp4 from the 'text' subdirectory instead, because that's the current directory)
+	(Esto intentará eliminar el archivo video.mp4 del subdirectorio 'texto', porque ese es el directorio actual)
 
-	/files/text$ rm /files/videos/video.mp4
-	(This will delete the file from the /files/videos/ directory, even though it isn't the current directory)
+	/archivos/texto$ rm /archivos/videos/video.mp4
+	(Esto eliminará el archivo del directorio /files/videos/, aunque no sea el directorio actual)
 
-Remember:
+Recuerda:
 
-**Starting a path with a slash** means you want to give the entire path and ignore what directory you're currently in.
-**Not starting a path with a slash** means you want to give the path starting from the directory you're in.
+**Comenzar una ruta con una barra diagonal** significa que desea proporcionar la ruta completa e ignorar el directorio en el que se encuentra actualmente.
+**No comenzar una ruta con una barra diagonal** significa que deseas indicar la ruta a partir del directorio en el que te encuentras.
 
-If you're ever unsure of what directory you're in, you can use the `pwd` (Print Working Directory) command to get the absolute path of the current directory.
+Si alguna vez no está seguro de en qué directorio se encuentra, puede usar el comando `pwd` (Print Working Directory - Imprimir directorio de trabajo) para obtener la ruta absoluta del directorio actual.
 
 	~$ pwd
-	/Users/Noah
+	/home/usuario
 
-File Patterns
+Patrones de archivos
 -------------
 
-In most cases when you have to specify a file name or directory name, you can also specify a general **pattern** that might match multiple files.  There are lots of ins and outs with this, but the most basic version is using the asterisk (*), which matches anything.  It's also known as a wildcard.
+En la mayoría de los casos, cuando tiene que especificar un nombre de archivo o de directorio, también puede especificar un **patrón** general que puede coincidir con varios archivos.  Hay muchos pros y contras con esto, pero la versión más básica utiliza el asterisco (*), que coincide con cualquier cosa.  También se le conoce como comodín.
 
-	Delete any file in the current directory
-	/files$ rm *
+	Eliminar cualquier archivo en el directorio actual
+	/archivos$ rm *
 
-	Delete any file that ends in '.txt'
-	/files$ rm *.txt
+	Elimina cualquier archivo que termine en '.txt'
+	/archivos$ rm *.txt
 
-	Delete any file that starts with 'data'
-	/files$ rm data*
+	Elimina cualquier archivo que comience con 'datos'
+	/archivos$ rm datos*
 
-Navigating
+Navegando
 ----------
+Los dos comandos principales para navegar en qué directorio se encuentra el mensaje son `cd` y `ls`.
 
-The two core commands for navigating what directory the prompt is in are `cd` and `ls`.
+`cd` es un comando para cambiar el directorio actual y debe ir seguido del directorio al que desea cambiar.  Puede proporcionar una ruta absoluta o relativa.
 
-`cd` is a command to change the current directory, and must be followed by a directory you want to change to.  You can supply an absolute or relative path.
+	Esto te llevará a  /archivos/videos
+	/archivos$ cd videos	
+	/archivos/videos$
 
-	This will put you in /files/videos
-	/files$ cd videos	
-	/files/videos$
-
-	This will put you in /videos, and then the vines subdirectory
-	/files$ cd /videos
-	/videos$ cd vines
+	Esto lo ubicará en /videos y luego en el subdirectorio vines.
+	/archivos$ cd /videos
+	/vídeos$ cd vines
 	/videos/vines$
 
-You can jump multiple levels at once if you want.
+Puedes saltar varios niveles a la vez si lo deseas.
 
-	This will put you in /files/videos/short
-	/files$ cd videos/short
+	Esto te llevará a /archivos/videos/corto
+	/archivos$ cd videos/corto
 
-You can use `cd ..` to move up one level to the parent directory.
+Puede usar `cd ..` para subir un nivel al directorio principal.
 
-	This will put you in /files
-	/files/videos$ cd ..
+	Esto te colocará en /archivos
+	/archivos/vídeos$ cd ..
 
-`ls` will list the files in the current directory.  It's helpful for figuring out where you are, what files exist, and what subfolders exist.
+`ls` enumerará los archivos en el directorio actual.  Es útil para saber dónde se encuentra, qué archivos existen y qué subcarpetas existen.
 
-	/photos$ ls	
-	thumbnails  photo1.jpg  photo2.jpg
+	/fotos$ ls	
+	miniaturas foto1.jpg foto2.jpg
 
-Using `ls -l` will print the list vertically, with lots of other extra information about the file size, permissions, and last modified date:
+Usar `ls -l` imprimirá la lista verticalmente, con mucha otra información adicional sobre el tamaño del archivo, los permisos y la fecha de la última modificación:
 
-	/photos$ ls -l
-	-rw-rw-r-- 1 noah noah 58133 Oct 22 17:13 photo1.jpg
-	-rw-rw-r-- 1 noah noah 75640 Oct 22 17:13 photo2.jpg
-	drwxrwxr-x 2 noah noah 4096  Oct 22 17:13 thumbnails
+	/fotos$ ls -l
+	-rw-rw-r-- 1 usuario usuario 58133 22 de octubre 17:13 foto1.jpg
+	-rw-rw-r-- 1 usuario usuario 75640 22 de octubre 17:13 foto2.jpg
+	drwxrwxr-x 2 usuario usuario 4096 22 de octubre 17:13 miniaturas
 
-When typing in a directory or file name, you can hit the 'Tab' key to autocomplete if it's possible.  For example, in the /photos folder, if you type in:
+Al escribir un directorio o nombre de archivo, puede presionar la tecla 'Tab' para autocompletar si es posible.  Por ejemplo, en la carpeta /fotos, si escribe:
 
-	/photos$ cd thu
+	/fotos$ cd mini
 
-and hit 'Tab,' it will fill in the rest and show you:
+y presione 'Tab', completará el resto y le mostrará:
 
-	/photos$ cd thumbnails
+	/fotos$ miniaturas
 
-However, if there is more than possible file/directory that matches what you've typed so far, it won't work.  If you type:
+Sin embargo, si hay más archivos/directorios posibles que coincidan con lo que ha escrito hasta ahora, no funcionará.  Si escribes:
 
-	/photos$ rm pho
+	/fotos$ rm fo
 
-and hit 'Tab,' nothing will happen because you could be on your way to `photo1.jpg` OR `photo2.jpg`.
+y presiona 'Tab', no sucederá nada porque podrías estar en camino a `foto1.jpg` O `foto2.jpg`.
 
-Command Output
+Si presionas dos veces 'Tab' te mostrará los archivos que comienzan con esas letras en la carpeta en la que estas.
+
+Salida del comando
 --------------
 
-The commands we're going to talk about all output their results as text.  When you execute the command by hitting 'Enter', it will print out a bunch of output on extra lines below the prompt. For example, `head [file]` will print out the first 10 lines of a file.
+Todos los comandos de los que vamos a hablar generan sus resultados como texto.  Cuando ejecuta el comando presionando 'Entrar', imprimirá una gran cantidad de resultados en líneas adicionales debajo del mensaje. Por ejemplo, `head [archivo]` imprimirá las primeras 10 líneas de un archivo.
 	
-	/files$ head names.txt
+	/archivos$ head nombres.txt
 	Dan Sinker
 	Erika Owens
 	Noah Veltman
-	Annabel Church
-	Friedrich Lindenberg
-	Sonya Song
+	Iglesia de Annabel
+	Federico Lindenberg
+	canción de sonia
 	Mike Tigas
 	Brian Abelson
-	Manuel Aristaran
+	Manuel Aristarán
 	Stijn Debrouwere
-	/files$
+	/archivos$
 
-Notice that after it prints out its output, it goes back to giving you a fresh prompt.  Getting the output printed out to you in this fashion is useful if you're just poking around, but often you want to do one of two things: **send the output to a file**, or **send the output to another command as an input**.
+Ten en cuenta que después de imprimir su resultado, vuelve a mostrar un mensaje nuevo.  Obtener el resultado impreso de esta manera es útil si simplemente está husmeando, pero a menudo desea hacer una de dos cosas: **enviar el resultado a un archivo** o **enviar el resultado a otro comando como entrada**.
 
-### Sending the output to a file
+### Enviar la salida a un archivo
 
-You can send the output to a new file this way:
+Puede enviar el resultado a un nuevo archivo de esta manera:
 
-	/files$ head names.txt > first10names.txt
+	/archivos$ head nombres.txt > primeros10nombres.txt
 
-If first10names.txt doesn't exist, it will be created.  If it already exists, it will be overwritten.
+Si primeros10names.txt no existe, se creará.  Si ya existe, se sobrescribirá.
 
-You can append the output to the end of an existing file this way:
+Puede agregar el resultado al final de un archivo existente de esta manera:
 
-	/files$ head names.txt >> allnames.txt
+	/archivos$ head nombres.txt >> todoslosnombres.txt
 
-This will add the output as 10 new lines at the end of allnames.txt.
+Esto agregará el resultado como 10 líneas nuevas al final de todoslosnombres.txt.
 
-### Sending the output to another command as an input
+### Enviar la salida a otro comando como entrada
 
-You can send the output to another command using the pipe symbol (|).  The `grep` command searches through some text for matches (more on this later), so you could do this to get the first 10 lines of a file, and then search for "Steve" within those 10 lines:
+Puede enviar la salida a otro comando usando el símbolo de canalización o pipe (|).  El comando `grep` busca coincidencias en algún texto (más sobre esto más adelante), por lo que puedes hacer esto para obtener las primeras 10 líneas de un archivo y luego buscar "Steve" dentro de esas 10 líneas:
 
-	/files$ head names.txt | grep "Steve"
+	/files$ head nombres.txt | grep "Steve"
 
-This is basically the same as doing this:
+Esto es básicamente lo mismo que hacer esto:
 
-	/files$ head names.txt > temporaryfile.txt
-	/files$ grep "Steve" temporaryfile.txt
+	/archivos$ head nombres.txt > archivotemporal.txt
+	/archivos$ grep "Steve" archivotemporal.txt
 
-But instead of first sending the output to a file and then running the second command on that file, you pipe the output directly from the first command into the second.  You can chain as many of these together as you want:
+Pero en lugar de enviar primero la salida a un archivo y luego ejecutar el segundo comando en ese archivo, canaliza la salida directamente desde el primer comando al segundo.  Puedes encadenar tantos de estos como quieras:
 
-	/files$ grep "United States" addresses.csv | grep "California" | head
+	/files$ grep direcciones "Estados Unidos".csv | grep "California" | head
 
-This would search the file addresses.csv for lines that contain the phrase "United States", then search the results for lines that contain the word "California", and then print out the first 10 of those matches.
+Esto buscaría en el archivo direcciones.csv líneas que contengan la frase "Estados Unidos", luego buscaría en los resultados líneas que contengan la palabra "California" y luego imprimiría las primeras 10 de esas coincidencias.
 
-Grep
+grep
 ----
 
-The `grep` command will let you search a file (or multiple files) for a phrase.  By default, it will print out each line that matches your search.
+El comando `grep` le permitirá buscar una frase en un archivo (o varios archivos).  De forma predeterminada, imprimirá cada línea que coincida con su búsqueda.
 
-Print out lines that contain the word "darkwing":
+Imprima líneas que contengan la palabra "darkwing":
 
-	/files$ grep "darkwing" famousducks.txt
+	/files$ grep "ala oscura" .patosfamosos.txt
 
-Same as above, but the search is case-insensitive:
+Igual que el anterior, pero la búsqueda no distingue entre mayúsculas y minúsculas:
 
-	/files$ grep -i "darkwing" famousducks.txt
+	/archivos$ grep -i "ala oscura" patosfamosos.txt 
 
-Find matches for the exact *word* "Donald" in a file - words that contain "Donald," like "McDonald," won't count:
+Encuentre coincidencias para la *palabra* exacta "Donald" en un archivo; las palabras que contengan "Donald", como "McDonald", no contarán:
 
-	grep -w "Donald" famousducks.txt
+	grep -w "Donald" patosfamosos.txt
 
-Find matches for "McDuck" in every file in the current directory:
+Encuentre coincidencias para "McDuck" en cada archivo en el directorio actual:
 
-	grep "McDuck" *
+	grep "McPato" *
+Encuentre coincidencias para "McDuck" en cada archivo del directorio actual Y en cada subdirectorio, hasta el final:
 
-Find matches for "McDuck" in every file in the current directory AND every subdirectory, all the way down:
+	grep -r "McPato" *
 
-	grep -r "McDuck" *
+Para cada coincidencia de "Howard", imprima esa línea Y las 4 líneas posteriores (5 líneas en total):
 
-For each match of "Howard", print out that line AND the 4 lines after it (5 lines total):
+	grep -A 4 "Howard" patosfamosos.txt
 
-	grep -A 4 "Howard" famousducks.txt
+Para cada coincidencia de "Howard", imprima esa línea Y las 4 líneas anteriores (5 líneas en total):
 
-For each match of "Howard", print out that line AND the 4 lines before it (5 lines total):
+	grep -B 4 "Howard" patosfamosos.txt
 
-	grep -B 4 "Howard" famousducks.txt
+Para cada coincidencia de "Howard", imprima esa línea Y las 4 líneas anteriores Y las 4 líneas posteriores (9 líneas en total):
 
-For each match of "Howard", print out that line AND the 4 lines before it AND the 4 lines after it (9 lines total):
+	grep -C 4 "Howard" patosfamosos.txt
 
-	grep -C 4 "Howard" famousducks.txt
+En lugar de imprimir las líneas coincidentes, imprima los nombres de archivos que coincidan con su búsqueda:
 
-Instead of printing out the matching lines themselves, print out the filenames that match your search:
+	grep -l "Lucas" *
 
-	grep -l "Daffy" *
+Solo obtén el número de coincidencias:
 
-Just get the number of matches:
+	grep -c "Lucas" *
 
-	grep -c "Daffy" *
+Muestra los números de línea junto con las líneas coincidentes:
 
-Show line numbers along with the matching lines:
+	grep -n "Lucas" patosfamosos.txt
 
-	grep -n "Daffy" famousducks.txt
-
-Cat
+gato
 ---
 
-The `cat` command will combine multiple files together. This will print three files in a row, as if they were one file:
+El comando `cat` combinará varios archivos (los conCATena). Esto imprimirá tres archivos seguidos, como si fueran un solo archivo:
 
-	cat turkey.txt duck.txt chicken.txt
+	cat pavo.txt pato.txt pollo.txt
 
-Remember that this will just print the output into your terminal.  More likely, you want to create a new file that combines them:
+Recuerde que esto simplemente imprimirá el resultado en su terminal.  Lo más probable es que quieras crear un nuevo archivo que los combine:
 
-	cat turkey.txt duck.txt chicken.txt > turducken.txt
+	cat pavo.txt pato.txt pollo.txt > turducken.txt
 
-turducken.txt will contain all of the lines in turkey.txt, followed by all of the lines in duck.txt, followed by all of the lines in chicken.txt.
+turducken.txt contendrá todas las líneas de pavo.txt, seguidas de todas las líneas de pato.txt, seguidas de todas las líneas de pollo.txt.
 
-If you want to combine ALL of the files in a directory, you can use a wildcard:
+Si desea combinar TODOS los archivos en un directorio, puede usar un comodín:
 
-	cat * > allfilescombined.txt
+	cat * > todos los archivos combinados.txt
 
-Head
+head
 ----
 
-The `head` command will print out the first 10 lines of a file:
+El comando `head` imprimirá las primeras 10 líneas de un archivo:
 
-	/files$ head names.txt
+	/archivos$ head nombres.txt
 
-You can also specify a different number of lines.  This will print out the first 15 lines of a file:
+También puede especificar un número diferente de líneas.  Esto imprimirá las primeras 15 líneas de un archivo:
 
-	/files$ head -n 15 names.txt
+	/archivos$ head -n 15 nombres.txt
 
-Or, if you want to print all the file but leave out the LAST 15 lines, you can give a negative number:
+O, si desea imprimir todo el archivo pero omite las ÚLTIMAS 15 líneas, puede dar un número negativo:
 
-	/files$ head -n -15 names.txt
+	/archivos$ head -n -15 nombres.txt
 
-One of the nice uses of head is to quickly peek inside a large text file to see what's in it without having to wait for a text editor to load it.  This becomes a big deal when you're talking about a 1 GB file!
+Uno de los buenos usos de head es echar un vistazo rápidamente dentro de un archivo de texto grande para ver qué contiene sin tener que esperar a que un editor de texto lo cargue.  ¡Esto se convierte en un gran problema cuando se habla de un archivo de 1 GB!
 
-Tail
+cola
 ----
 
-The `tail` command is the reverse of head.  It will print out the last 10 lines of a file:
+El comando "tail" es el inverso de head.  Imprimirá las últimas 10 líneas de un archivo:
 
-	/files$ tail names.txt
+	/archivos$ tail nombres.txt
 
-This will print out the last 15 lines of a file:
+Esto imprimirá las últimas 15 líneas de un archivo:
 
-	/files$ tail -n 15 names.txt
+	/archivos$ tail -n 15 nombres.txt
 
-Or, if you want to print all the file but leave out the FIRST 15 lines, you can add a plus sign:
+O, si desea imprimir todo el archivo pero omite las PRIMERAS 15 líneas, puede agregar un signo más:
 
-	/files$ tail -n +16 names.txt
+	/archivos$ tail -n +16 nombres.txt
 
-This is helpful if you want to, say, remove a header row from a CSV file:
+Esto es útil si desea, por ejemplo, eliminar una fila de encabezado de un archivo CSV:
 
-	/files$ tail -n +2 names.txt > names-no-header.txt
+	/archivos$ tail -n +2 nombres.txt > nombres-sin-encabezado.txt
 
-Miscellaneous
+Varios
 -------------
 
-If you just want to print out the entire contents of a file into your terminal, you can use `cat` and not combine it with anything.  This is sort of against the whole point of `cat`, but is a handy trick.
+Si solo desea imprimir todo el contenido de un archivo en su terminal, puede usar `cat` y no combinarlo con nada.  Esto va en contra del objetivo de "cat", pero es un truco útil muy usado.
 
-	/files$ cat address.txt
-	1600 Pennsylvania Avenue
+	/archivos$ cat direccion.txt
+	1600 Avenida Pensilvania
 	Washington, DC 20500
 
-If you want to get serious and open a file in a text editor that comes built in to your terminal, you can try `nano`:
+Si quieres abrir un archivo en un editor de texto que viene integrado en tu terminal, puedes probar con `nano`:
 
-	/files$ nano address.txt
+	/archivos$ nano direccion.txt
 
-How many lines are in names.txt?
+¿Cuántas líneas hay en nombres.txt?
 
-	/files$ wc -l names.txt
+	/archivos$ wc -l nombres.txt
 	18
 
-Regular expressions
+Expresiones regulares
 -------------------
 
-When using something like `grep` to search, you can search for a simple term with only letters, numbers, and spaces.  But if you want to search for a pattern, you can use what's called a **regular expression**.  Regular expressions use special characters to represent patterns, like "any number," "any letter," "X or Y," "at least three lowercase letters," and so on.
+Cuando usa algo como "grep" para buscar, puede buscar un término simple con solo letras, números y espacios.  Pero si desea buscar un patrón, puede utilizar lo que se llama **expresión regular**.  Las expresiones regulares utilizan caracteres especiales para representar patrones, como "cualquier número", "cualquier letra", "X o Y", "al menos tres letras minúsculas", etc.
 
-We won't worry about the ins and outs for now, but one useful operator is the period (.).  In regular expression-ese, this means "One of any character."  So you can search for something like:
+No nos preocuparemos por los entresijos por ahora, pero un operador útil es el punto (.).  En expresión regular, esto significa "Uno de cualquier carácter".  Entonces puedes buscar algo como:
 
-	/files$ grep -i "car.s" dictionary.txt
+	/archivos$ grep -i "car.s" diccionario.txt
 
-This would match words like `cards`,`carts`,`cares`, and so on.  It would also match the middle of the phrase "scar story" (CAR S) because "any character" means ANY character, including a space or a punctuation mark.
+Esto coincidiría con palabras como "cards", "carts", "cares", etc.  También coincidiría con la mitad de la frase "scar story" (CAR S) porque "cualquier carácter" significa CUALQUIER carácter, incluido un espacio o un signo de puntuación.
 
-One more example:
+Un ejemplo más:
 
-	/files$ grep -i ".e.st" dictionary.txt
+	/archivos$ grep -i ".e.st" diccionario.txt
 
-This would match things like `least`,`beast`, and `heist`.
+Esto coincidiría con cosas como "least", "beast" y "heist".
 
-More than one way to skin a cat
+Más de una forma de hacer lo mismo
 ------------------------------
 
-There are often lots of equally legitimate commands or combinations of commands to achieve the same purpose.
+A menudo hay muchos comandos o combinaciones de comandos igualmente legítimos para lograr el mismo propósito.
 
-Example:
+Ejemplo:
 
-	/files$ head -n 12 names.txt | tail -n 5
-	(Print out the first 12 lines, and then print out the last 5 lines of that)
+	/files$ head -n 12 nombres.txt | tail -n 5
+	(Imprima las primeras 12 líneas y luego imprima las últimas 5 líneas)
 
-	is the same as
+	es lo mismo que
 
-	/files$ tail -n +8 names.txt | head -n 5
-	(Print out everything starting with line 8, then print the first 5 lines of that)
+	/archivos$ tail -n +8 nombres.txt | cabeza -n 5
+	(Imprima todo comenzando con la línea 8, luego imprima las primeras 5 líneas)
 
-	is pretty much the same as:
+	es prácticamente lo mismo que:
 
-	/files$ tail -n +8 names.txt > temporaryfile.txt
-	/files$ head -n 5 temporaryfile.txt
-	/files$ rm temporaryfile.txt
-	(Save everything starting with line 8 to a temporary file, then print the first 5 lines of that, then delete the temporary file)
+	/archivos$ tail -n +8 nombres.txt > archivotemporal.txt
+/archivos$ head -n 5 archivotemporal.txt
+	/archivos$ rm archivotemporal.txt
+	(Guarde todo comenzando con la línea 8 en un archivo temporal, luego imprima las primeras 5 líneas y luego elimine el archivo temporal)
 
 ---
 
-## Questions/Comments/Suggestions ##
+## Preguntas/Comentarios/Sugerencias ##
 Noah Veltman  
 Web: http://noahveltman.com  
-Twitter: [@veltman](http://twitter.com/veltman)  
-Email: [noah@noahveltman.com](mailto:noah@noahveltman.com)  
+Gorjeo: [@veltman](http://twitter.com/veltman)  
+Correo electrónico: [noah@noahveltman.com](correo a:noah@noahveltman.com)
