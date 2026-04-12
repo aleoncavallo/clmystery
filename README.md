@@ -24,28 +24,36 @@ The Command Line Murders
 	OOOOOOO'  `@@a               @@a@@   @@""           a@@   a     |@@@ OOOO3
 	`OOOO'       `@    aa@@       aaa"""          @a        a@     a@@@',OOOO'
 
+Ha ocurrido un asesinato en Terminal City, y el TCPD (Departamento de Policía de Terminal City) necesita tu ayuda.
 
-There's been a murder in Terminal City, and TCPD needs your help.
+Para descubrir quién lo hizo, necesitas acceso a una línea de comandos.
 
-To figure out whodunit, you need access to a command line.
+Una vez estes ahí estes en la terminal, clona este repositorio:
 
-Once you're ready, clone this repo, or [download it as a zip file](https://github.com/veltman/clmystery/archive/master.zip).
+```git clone https://https://github.com/aleoncavallo/clmystery```
 
-Open a Terminal, go to the location of the files, and start by reading the file 'instructions'.
+dirígete a la ubicación de los archivos 
 
-One way you can do this is with the command:
+```cd clmystery```
 
-	cat instructions
+y comienza leyendo el archivo llamado 'instructions'.
 
-(`cat` is a command that will print the contents of the file called `instructions` for you to read.)
+```cat instructions```
 
-To get started on how to use the command line, open cheatsheet.md or cheatsheet.pdf (from the command line, you can type 'nano cheatsheet.md').
+(cat es el comando que imprimirá el contenido del archivo llamado instructions para que puedas leerlo).
 
-Don't use a text editor to view any files except these instructions, the cheatsheet, and hints.
+Si necesitas ayuda sobre cómo usar la línea de comandos, abre cheatsheet.md o cheatsheet.pdf (desde la línea de comandos, puedes escribir nano cheatsheet.md).
 
-### Credits
+No utilices un editor de texto para ver ningún archivo, excepto estas instrucciones, la hoja de trucos (cheatsheet) y las pistas.
+
+
+
+### Créditos original en ingles
 
 By Noah Veltman  
 Projects: [noahveltman.com](http://noahveltman.com)  
 GitHub: [veltman](https://github.com/veltman)  
 Twitter: [@veltman](https://twitter.com/veltman)  
+
+### Traduccion al español
+Por aleoncavallo para la materia Entorno de Programación TUIA FCEIA
