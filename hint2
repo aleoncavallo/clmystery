@@ -1,3 +1,3 @@
 Intenta usar grep para buscar las pistas en el archivo crimescene:
 
-	grep "CLUE" crimescene
+	grep "PISTA" crimescene
