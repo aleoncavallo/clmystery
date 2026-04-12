@@ -1,5 +1,8 @@
-Try poking around what's in a file by using the 'head' command:
+Intenta explorar el contenido de un archivo usando el comando head:
 
-  head -n 20 people
+```bash
+head -n 20 people
+```
 
-This will show you the first 20 lines of the 'people' file.
+Esto te mostrará las primeras 20 líneas del archivo people.
+
