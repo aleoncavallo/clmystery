@@ -30,15 +30,21 @@ Para descubrir quién lo hizo, necesitas acceso a una línea de comandos.
 
 Una vez estes en bash, clona este repositorio:
 
-```git clone https://https://github.com/aleoncavallo/clmystery```
+``` {.sourceCode .bash}
+git clone https://https://github.com/aleoncavallo/clmystery
+```
 
 dirígete a la ubicación de los archivos 
 
-```cd clmystery```
+``` {.sourceCode .bash}
+cd clmystery
+```
 
 y comienza leyendo el archivo llamado 'instructions'.
 
-```cat instructions```
+``` {.sourceCode .bash}
+cat instructions
+```
 
 (cat es el comando que imprimirá el contenido del archivo llamado instructions para que puedas leerlo).
 
