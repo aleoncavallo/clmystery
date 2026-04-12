@@ -22,20 +22,19 @@ OOOOOOO'  `@@a               @@a@@   @@""           a@@   a     |@@@ OOOO3
 `OOOO'       `@    aa@@       aaa"""          @a        a@     a@@@',OOOO'
 
 
-There's been a murder in Terminal City, and TCPD needs your help.
+Ha ocurrido un asesinato en Terminal City, y el TCPD necesita tu ayuda.
 
-To figure out whodunit, go to the 'mystery' subdirectory and start working from there.
+Para descubrir quién lo hizo, ve al subdirectorio 'mystery' y empieza a trabajar desde allí.
 
-You'll want to start by collecting all the clues at the crime scene (the 'crimescene' file).
+Lo ideal es que comiences recolectando todas las pistas en la escena del crimen (el archivo 'crimescene').
 
-The officers on the scene are pretty meticulous, so they've written down EVERYTHING in their officer reports.
+Los oficiales en la escena son bastante meticulosos, por lo que han anotado TODO en sus reportes de oficial.
 
-Fortunately the sergeant went through and marked the real clues with the word "CLUE" in all caps.
+Afortunadamente, el sargento revisó todo y marcó las pistas reales con la palabra "CLUE" (PISTA) en mayúsculas.
 
-If you get stuck, open one of the hint files (from the CL, type 'cat hint1', 'cat hint2', etc.).
+Si se te complica, abre uno de los archivos de pistas (desde la línea de comandos, escribe cat hint1, cat hint2, etc.).
 
-To check your answer or find out the solution, open the file 'solution' (from the CL, type 'cat solution').
+Para verificar tu respuesta o descubrir la solución, abre el archivo 'solution' (desde la línea de comandos, escribe cat solution).
 
-To get started on how to use the command line, open cheatsheet.md or cheatsheet.pdf (from the command line, you can type 'nano cheatsheet.md').
+No utilices un editor de texto para ver ningún archivo, excepto estas instrucciones, la hoja de trucos y las pistas.
 
-Don't use a text editor to view any files except these instructions, the cheatsheet, and hints.
