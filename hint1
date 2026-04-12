@@ -1,8 +1,6 @@
 Intenta explorar el contenido de un archivo usando el comando head:
 
-```bash
 head -n 20 people
-```
 
 Esto te mostrará las primeras 20 líneas del archivo people.
 
