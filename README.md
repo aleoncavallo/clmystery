@@ -48,7 +48,7 @@ cat instructions
 
 (cat es el comando que imprimirá el contenido del archivo llamado instructions para que puedas leerlo).
 
-Si necesitas ayuda sobre cómo usar la línea de comandos, abre cheatsheet.md o cheatsheet.pdf (desde la línea de comandos, puedes escribir nano cheatsheet.md).
+Si necesitas ayuda sobre cómo usar la línea de comandos, abre cheatsheet.md (desde la línea de comandos, puedes escribir less cheatsheet.md, eso abre el programa interactivo less en el que puedes moverte con flechas, subir y bajar paginas con RePag y AvPag, ir al principio con g, al final con G, y salir con q).
 
 No utilices un editor de texto para ver ningún archivo, excepto estas instrucciones, la hoja de trucos (cheatsheet) y las pistas.
 
