@@ -28,7 +28,7 @@ Ha ocurrido un asesinato en Terminal City, y el TCPD (Departamento de Policía d
 
 Para descubrir quién lo hizo, necesitas acceso a una línea de comandos.
 
-Una vez estes ahí estes en la terminal, clona este repositorio:
+Una vez estes estes en bash, clona este repositorio:
 
 ```git clone https://https://github.com/aleoncavallo/clmystery```
 
