@@ -1,9 +1,7 @@
-To find a matching license plate, or a matching car, you can use grep on the 'vehicles' file:
+Para encontrar una patente coincidente o un auto que coincida, podés usar grep sobre el archivo vehicles:
 
-	grep "Honda" vehicles
+grep "Honda" vehicles
+grep "Blue" vehicles
+grep "L337" vehicles
 
-	grep "Blue" vehicles
-
-	grep "L337" vehicles
-
-This doesn't give us anything useful - why not? Try using 'head' on the file to investigate its structure.
+Esto no nos da nada útil… ¿por qué será? Probá usar head sobre el archivo para investigar su estructura.
