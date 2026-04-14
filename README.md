@@ -53,6 +53,9 @@ Si necesitas ayuda sobre cómo usar la línea de comandos, abre cheatsheet.md (d
 No utilices un editor de texto para ver ningún archivo, excepto estas instrucciones, la hoja de trucos (cheatsheet) y las pistas.
 
 
+Para ir tomando notas de la investigación usa redirecciones (>>) al archivo 'notas' para guardar ahí la salida cada comando que te da una pista. 
+
+
 
 ### Créditos original en ingles
 
