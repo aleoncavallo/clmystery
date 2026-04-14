@@ -31,7 +31,7 @@ Para descubrir quién lo hizo, necesitas acceso a una línea de comandos.
 Una vez estes en bash, clona este repositorio:
 
 ``` {.sourceCode .bash}
-git clone https://https://github.com/aleoncavallo/clmystery
+git clone https://github.com/aleoncavallo/clmystery
 ```
 
 dirígete a la ubicación de los archivos 
