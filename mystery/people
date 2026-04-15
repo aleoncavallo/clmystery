@@ -1,11 +1,12 @@
 ***************
-To go to the street someone lives on, use the file
-for that street name in the 'streets' subdirectory.
-To knock on their door and investigate, read the line number
-they live on from the file.  If a line looks like gibberish, you're at the wrong house.
+Para ir a la calle en la que vive alguien, 
+usa el archivo correspondiente al nombre de esa calle dentro del subdirectorio “streets”.
+Para tocar su puerta e investigar, 
+lee el número de línea en el que vive dentro de ese archivo. 
+Si una línea tiene una frase sin sentido, estás en la casa equivocada
 ***************
 
-NAME	GENDER	AGE	ADDRESS
+NOMBRE	GENERO	EDAD	DIRECCION
 Alicia Fuentes	F	48	Walton Street, line 433
 Jo-Ting Losev	F	46	Hemenway Street, line 390
 Elena Edmonds	F	58	Elmwood Avenue, line 123
